@@ -1,0 +1,50 @@
+-- Crear la base de datos Juegos
+CREATE DATABASE Juegos;
+
+-- Usar la base de datos Juegos
+USE Juegos;
+
+-- Crear la tabla de la entidad principal, por ejemplo, Juego
+CREATE TABLE Juego (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    genero VARCHAR(50),
+    plataforma VARCHAR(50)
+);
+
+-- Crear la tabla de la entidad secundaria, por ejemplo, Jugador
+CREATE TABLE Jugador (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    edad INT,
+    juego_id INT,
+    FOREIGN KEY (juego_id) REFERENCES Juego(id)
+);
+
+*********************************
+
+-- Insertar datos en la tabla Juego
+INSERT INTO Juego (nombre, genero, plataforma) VALUES
+('The Witcher 3: Wild Hunt', 'RPG', 'PlayStation 4'),
+('The Legend of Zelda: Breath of the Wild', 'Action-Adventure', 'Nintendo Switch'),
+('Red Dead Redemption 2', 'Action-Adventure', 'Xbox One'),
+('Grand Theft Auto V', 'Action-Adventure', 'PC'),
+('Dark Souls III', 'Action RPG', 'PlayStation 4'),
+('Super Mario Odyssey', 'Platformer', 'Nintendo Switch'),
+('FIFA 22', 'Sports', 'PlayStation 5'),
+('Call of Duty: Warzone', 'Battle Royale', 'PC'),
+('Among Us', 'Social Deduction', 'Mobile'),
+('Minecraft', 'Sandbox', 'PC');
+
+-- Insertar datos en la tabla Jugador
+INSERT INTO Jugador (nombre, edad, juego_id) VALUES
+('Juan', 25, 1),  -- Jugando The Witcher 3
+('María', 30, 2),  -- Jugando The Legend of Zelda: Breath of the Wild
+('Pedro', 28, 3),  -- Jugando Red Dead Redemption 2
+('Ana', 22, 4),    -- Jugando Grand Theft Auto V
+('Luis', 27, 5),   -- Jugando Dark Souls III
+('Sofía', 20, 6),  -- Jugando Super Mario Odyssey
+('Diego', 24, 7),  -- Jugando FIFA 22
+('Laura', 26, 8),  -- Jugando Call of Duty: Warzone
+('Elena', 29, 9),  -- Jugando Among Us
+('Carlos', 32, 10);-- Jugando Minecraft
